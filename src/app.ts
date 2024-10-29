@@ -1,4 +1,4 @@
-import { envs } from './core';
+import { envs, sequelize } from './core';
 import { AppRoutes } from './routes';
 import { Server } from './server';
 
@@ -6,8 +6,10 @@ import { Server } from './server';
 	main();
 })();
 
-function main(): void {
+async function main(): Promise<void> {
 	// * At this point you can connect to your database for example MongoDB
+
+	await sequelize.sync();
 
 	const server = new Server({
 		port: envs.PORT,

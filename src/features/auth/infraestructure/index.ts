@@ -1,2 +1,2 @@
-export * from './local.datasource.impl';
+export * from './datasource.impl';
 export * from './repository.impl';

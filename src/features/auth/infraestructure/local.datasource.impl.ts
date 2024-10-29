@@ -1,4 +1,4 @@
-import { AppError, ONE, basicEncript, basicJWT } from '../../../core';
+import { AppError, ONE, basicEncript, basicJWT, database } from '../../../core';
 import { type RegisterUserDto, type AuthDatasource, UserEntity, AuthEntity, type LoginUserDto } from '../domain';
 
 const USERS_MOCK = [

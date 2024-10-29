@@ -24,6 +24,7 @@
     "@types/express": "^5.0.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.8.1",
+    "@types/sqlite3": "^3.1.11",
     "@types/supertest": "^6.0.2",
     "eslint": "^9.13.0",
     "eslint-config-prettier": "^9.1.0",
@@ -39,10 +40,14 @@
     "typescript-eslint": "^8.11.0"
   },
   "dependencies": {
+    "@types/sequelize": "^4.28.20",
     "compression": "^1.7.4",
     "dotenv": "^16.4.5",
     "env-var": "^7.5.0",
     "express": "^4.21.1",
-    "express-rate-limit": "^7.4.1"
+    "express-rate-limit": "^7.4.1",
+    "sequelize": "^6.37.5",
+    "sequelize-cli": "^6.6.2",
+    "sqlite3": "^5.1.7"
   }
 }
