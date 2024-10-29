@@ -1,14 +1,18 @@
-import { envs } from './core/config/env';
+import { envs } from './core';
+import { AppRoutes } from './routes';
 import { Server } from './server';
 
 (() => {
- main();
+	main();
 })();
 
 function main(): void {
- const server = new Server({
-  port: envs.PORT,
-  apiPrefix: envs.API_PREFIX
- });
- void server.start();
+	// * At this point you can connect to your database for example MongoDB
+
+	const server = new Server({
+		port: envs.PORT,
+		apiPrefix: envs.API_PREFIX,
+		routes: AppRoutes.routes
+	});
+	void server.start();
 }
