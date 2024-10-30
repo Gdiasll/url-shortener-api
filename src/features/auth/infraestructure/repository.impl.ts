@@ -4,6 +4,7 @@ import {
 	type AuthEntity,
 	type AuthDatasource,
 	type LoginUserDto,
+	type UserEntity,
 } from '../domain';
 
 export class AuthRepositoryImpl implements AuthRepository {
