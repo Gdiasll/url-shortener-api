@@ -1,11 +1,18 @@
 import { type Response, type NextFunction, type Request } from 'express';
 import { AppError, ONE, basicJWT } from '../../../../core';
 
-import { type AuthRepository, GetUserById } from '../../../auth';
+import { type AuthRepository } from '../../../auth';
+import { GetUserById } from '../../domain/usecases/getUserById.usecase';
 
 export class AuthMiddleware {
 	//* Dependency injection
 	constructor(private readonly repository: AuthRepository) {}
+
+	public validateOptionalJwt = (req: Request, _: Response, next: NextFunction): void => {
+		const authorization = req.header('Authorization');
+		if (authorization) this.validateJWT(req, _, next)
+		else next();
+	}
 
 	public validateJWT = (req: Request, _: Response, next: NextFunction): void => {
 		const authorization = req.header('Authorization');

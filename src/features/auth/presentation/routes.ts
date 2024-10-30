@@ -1,5 +1,3 @@
-// src/features/auth/presentation/routes.ts
-
 import { Router } from 'express';
 
 import { AuthController } from './controller';

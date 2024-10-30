@@ -1,11 +1,8 @@
-
-import { Model } from 'sequelize';
 import { AppError, basicEncript, basicJWT } from '../../../core';
-import { type RegisterUserDto, UserEntity, AuthEntity, type LoginUserDto } from '../domain';
+import { type RegisterUserDto, UserEntity, AuthEntity, type LoginUserDto, AuthDatasource } from '../domain';
 import User from './user.model';
 
-
-export class AuthDatasourceImpl {
+export class AuthDatasourceImpl implements AuthDatasource {
 	
 	public async register(dto: RegisterUserDto): Promise<AuthEntity> {
 		const user = await User.findOne({ where: { email: dto.email } });
@@ -28,6 +25,12 @@ export class AuthDatasourceImpl {
 		const { password, ...rest } = UserEntity.fromJson({ ...user.dataValues });
 		const token = basicJWT.generateToken({ id: user.dataValues.id });
 		return new AuthEntity(rest, token);
+	}
+
+	public async getUserById(dto: string): Promise<UserEntity> {
+		const user = await User.findByPk(dto);
+		if (!user) throw AppError.badRequest('User with this id not found');
+		return UserEntity.fromJson(user.dataValues);
 	}
 
     private async createUser(email: string, password: string): Promise<number> {
