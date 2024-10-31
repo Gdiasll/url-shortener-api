@@ -8,7 +8,29 @@ The URL Shortener API is a tool designed to shorten URLs and generate short link
 
 ## Node.js Version
 
-This project is built using Node.js version 20.18.
+This project is built using Node.js version 20.18.0
+
+# Start server using docker-compose
+
+## Environment Configuration
+
+To create and populate the `.env` file based on the `.env.template` file in the root of the project, follow these steps:
+
+1. **Copy the `.env.template` file**:
+   - Rename `.env.template` to `.env`.
+
+2. **Edit the `.env` file**:
+   - Fill in the necessary environment variables as required for your application.
+
+## Running the Application
+
+Ensure that you have Docker installed on your machine. Once you have your environment set up, you can start the application using Docker Compose.
+
+Run the following command in your terminal:
+
+```bash
+docker-compose up
+```
 
 ## API path
 
@@ -26,6 +48,8 @@ This project is built using Node.js version 20.18.
 - **POST /url**: Create a new shortened URL.
 - **PUT /url/:code**: Edit an existing shortened URL.
 - **DELETE /url/:code**: Perform a soft delete on a specific shortened URL.
+
+url example: **http://localhost:3000/api/v1/url/lkjYkaj**
 
 ## Database
 
