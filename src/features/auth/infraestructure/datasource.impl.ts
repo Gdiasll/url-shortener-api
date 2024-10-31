@@ -36,6 +36,6 @@ export class AuthDatasourceImpl implements AuthDatasource {
     private async createUser(email: string, password: string): Promise<number> {
 		const result = await User.create({ email, password });
         if (!result) throw AppError.internalServer;
-        return result.id;
+        return result.dataValues.id;
     }
 }

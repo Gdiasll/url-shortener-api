@@ -11,7 +11,7 @@ export class UpdateUrlDto implements CoreDto<UpdateUrlDto> {
         this.validate(this);
     }
 
-    public validate(dto: CreateUrlDto): void {
+    public validate(dto: UpdateUrlDto): void {
         const errors: ValidationType[] = [];
         const { code, originalUrl } = dto;
 

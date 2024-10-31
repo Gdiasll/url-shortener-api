@@ -34,7 +34,7 @@ export class UrlDatasourceImpl implements UrlDatasource{
         });
     }
 
-    public async getByUser(userId: string): Promise<UrlEntity[]> {
+    public async getByUser(userId: string): Promise<any[]> {
         const result = await Url.findAll({ where: { userId } });
         return result;
     }

@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  api:
+    image: node-docker-demo:latest
+    build: .
+    command: npm run start
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./api:/app
